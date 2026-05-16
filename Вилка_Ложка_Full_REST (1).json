@@ -1,0 +1,248 @@
+{
+  "info": {
+    "name": "Вилка_Ложка_Full_REST",
+    "description": "GET/POST/PUT/DELETE распределены по всем маршрутам",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "🔵 GET — Получение данных",
+      "item": [
+        {
+          "name": "GET / — Главная",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/"
+          }
+        },
+        {
+          "name": "GET /menu — Меню",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/menu"
+          }
+        },
+        {
+          "name": "GET /profile — Профиль",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/profile"
+          }
+        },
+        {
+          "name": "GET /cart — Корзина",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/cart"
+          }
+        },
+        {
+          "name": "GET /booking — Бронирование",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/booking"
+          }
+        },
+        {
+          "name": "GET /search?q=борщ",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/search?q=борщ",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "борщ"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "🟢 POST — Создание / Отправка форм",
+      "item": [
+        {
+          "name": "POST /login — Вход",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/login",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "phone",
+                  "value": "{{test_phone}}"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "POST /login_code — Код",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/login_code",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "code",
+                  "value": "{{test_code}}"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "POST /register — Регистрация",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/register",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "name",
+                  "value": "{{test_name}}"
+                },
+                {
+                  "key": "email",
+                  "value": "{{test_email}}"
+                },
+                {
+                  "key": "birthdate",
+                  "value": "01.01.2000"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "POST /add_to_cart/5 — В корзину",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/add_to_cart/5"
+          }
+        },
+        {
+          "name": "POST /checkout — Заказ",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/checkout"
+          }
+        },
+        {
+          "name": "POST /booking — Бронь",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/booking",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "date",
+                  "value": "20.05.2026"
+                },
+                {
+                  "key": "time",
+                  "value": "19:00"
+                },
+                {
+                  "key": "guests",
+                  "value": "2"
+                },
+                {
+                  "key": "comment",
+                  "value": "У окна"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "🟡 PUT — Обновление ресурса",
+      "item": [
+        {
+          "name": "PUT /profile/update — Изменить профиль",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/profile/update",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Иван Петров\", \"phone\": \"+7 (999) 987-65-43\", \"email\": \"petrov@mail.ru\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "PUT /cart/update — Заменить корзину",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/cart/update",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"items\": {\"5\": 2, \"7\": 1}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "🔴 DELETE — Удаление ресурса",
+      "item": [
+        {
+          "name": "DELETE /profile — Удалить аккаунт",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/profile"
+          }
+        },
+        {
+          "name": "DELETE /cart — Очистить корзину",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/cart"
+          }
+        },
+        {
+          "name": "DELETE /booking/cancel/1234567 — Удалить бронь",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/booking/cancel/1234567"
+          }
+        }
+      ]
+    }
+  ]
+}
