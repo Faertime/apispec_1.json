@@ -3,6 +3,7 @@
   "info": {
     "title": "Вилка & Ложка - REST API",
     "version": "2.0.0",
+    "description": "Сайт ресторана"
   },
   "servers": [
     {
